@@ -46,7 +46,7 @@
         }
       </nav>
 
-      <div class="p-12 md:p-16 space-y-6 text-justify">
+      <div class="p-12 md:p-16 space-y-6 text-justify h-[970px] overflow-hidden">
         @switch (activeTab()) {
           @case ('about') {
             <p>
@@ -255,7 +255,12 @@
             </div>
           }
           @case ('cv') {
-            <p class="text-neutral-500">CV coming soon.</p>
+            <div class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50">
+              <iframe
+                [src]="cvSafeUrl()"
+                title="Farshad Moradi — CV"
+                class="block w-full h-[850px]"></iframe>
+            </div>
           }
         }
       </div>
