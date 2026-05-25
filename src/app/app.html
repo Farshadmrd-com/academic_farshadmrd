@@ -88,7 +88,171 @@
             </div>
           }
           @case ('projects') {
-            <p class="text-neutral-500">Projects coming soon.</p>
+            <div class="space-y-4">
+              <article class="rounded-xl border border-neutral-200 overflow-hidden">
+                <button
+                  type="button"
+                  (click)="toggleProject('basil-tracker')"
+                  [attr.aria-expanded]="isProjectOpen('basil-tracker')"
+                  class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-neutral-50 transition">
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-lg font-semibold text-black leading-snug">
+                      Basil Tracker — Hyperledger Fabric Supply-Chain Traceability
+                    </h3>
+                    <p class="text-sm text-neutral-500 mt-0.5">
+                      Permissioned blockchain · Smart contracts · Multi-org supply chain
+                    </p>
+                  </div>
+                  <svg
+                    [class]="'h-5 w-5 shrink-0 text-neutral-400 transition-transform ' + (isProjectOpen('basil-tracker') ? 'rotate-180' : '')"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                @if (isProjectOpen('basil-tracker')) {
+                  <div class="border-t border-neutral-200 px-5 py-5 space-y-3">
+                    <div class="flex justify-end">
+                      <a
+                        href="https://github.com/farshadmrd/basil-tracker-hyperLedger"
+                        target="_blank"
+                        rel="noopener"
+                        class="text-sm font-medium text-blue-600 hover:underline">
+                        View on GitHub →
+                      </a>
+                    </div>
+                    <p class="text-base text-neutral-600">
+                      A permissioned blockchain application that tracks basil from origin to consumer across multiple
+                      organizations. Built with a Hyperledger Fabric network, a Spring Boot gateway, and an Angular
+                      frontend.
+                    </p>
+                    <div>
+                      <h4 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+                        Security highlights
+                      </h4>
+                      <ul class="list-disc list-outside pl-5 text-base text-neutral-700 space-y-1">
+                        <li>
+                          <span class="font-medium">Permissioned network with PKI identities:</span> every participant
+                          (Org1, Org2, peers, ordering service) is issued an X.509 certificate by a Fabric CA, so only
+                          authenticated and authorized members can transact.
+                        </li>
+                        <li>
+                          <span class="font-medium">Immutable, tamper-evident ledger:</span> each basil record is
+                          cryptographically chained on the Fabric ledger, making historical data non-repudiable and
+                          protecting against silent record tampering.
+                        </li>
+                        <li>
+                          <span class="font-medium">Multi-party endorsement &amp; consensus:</span> transactions must be
+                          endorsed by independent organizations before being ordered and committed, eliminating any
+                          single point of trust or compromise.
+                        </li>
+                        <li>
+                          <span class="font-medium">Chaincode-enforced business rules:</span> all writes flow through
+                          smart contracts that validate input and enforce access control at the ledger layer, instead
+                          of trusting the client.
+                        </li>
+                        <li>
+                          <span class="font-medium">Hardened gateway boundary:</span> the Spring Boot backend isolates
+                          the Fabric Gateway SDK from the public API, applies CORS rules, and shields wallet
+                          credentials from the browser.
+                        </li>
+                        <li>
+                          <span class="font-medium">End-to-end auditability:</span> every create / query operation
+                          produces a traceable transaction with an origin (country) field, supporting full provenance
+                          audits for food-supply integrity.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Hyperledger Fabric</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Smart Contracts</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Spring Boot</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Angular</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">PKI / X.509</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Supply-Chain Security</span>
+                    </div>
+                  </div>
+                }
+              </article>
+
+              <article class="rounded-xl border border-neutral-200 overflow-hidden">
+                <button
+                  type="button"
+                  (click)="toggleProject('mondrian-k-anonymity')"
+                  [attr.aria-expanded]="isProjectOpen('mondrian-k-anonymity')"
+                  class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-neutral-50 transition">
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-lg font-semibold text-black leading-snug">
+                      Mondrian Multidimensional K-Anonymity
+                    </h3>
+                    <p class="text-sm text-neutral-500 mt-0.5">
+                      Privacy-preserving data publishing · Python · Re-identification defense
+                    </p>
+                  </div>
+                  <svg
+                    [class]="'h-5 w-5 shrink-0 text-neutral-400 transition-transform ' + (isProjectOpen('mondrian-k-anonymity') ? 'rotate-180' : '')"
+                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                @if (isProjectOpen('mondrian-k-anonymity')) {
+                  <div class="border-t border-neutral-200 px-5 py-5 space-y-3">
+                    <div class="flex justify-end">
+                      <a
+                        href="https://github.com/erfanghorbanee/Mondrian-Multidimensional-K-Anonymity"
+                        target="_blank"
+                        rel="noopener"
+                        class="text-sm font-medium text-blue-600 hover:underline">
+                        View on GitHub →
+                      </a>
+                    </div>
+                    <p class="text-base text-neutral-600">
+                      A Python implementation of the Mondrian Multidimensional K-Anonymity algorithm (LeFevre, DeWitt,
+                      Ramakrishnan) for privacy-preserving data publishing. Anonymizes tabular datasets such as the UCI
+                      Adult dataset so that individual records cannot be re-identified through table-joining attacks.
+                    </p>
+                    <div>
+                      <h4 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+                        Privacy highlights
+                      </h4>
+                      <ul class="list-disc list-outside pl-5 text-base text-neutral-700 space-y-1">
+                        <li>
+                          <span class="font-medium">Formal k-anonymity guarantee:</span> every released record is
+                          indistinguishable from at least <em>k − 1</em> others on its quasi-identifiers, blocking
+                          linkage attacks against auxiliary datasets.
+                        </li>
+                        <li>
+                          <span class="font-medium">Multidimensional partitioning:</span> the Mondrian algorithm splits
+                          the quasi-identifier space adaptively, preserving more data utility than single-dimensional
+                          generalization.
+                        </li>
+                        <li>
+                          <span class="font-medium">Explicit identifier suppression:</span> direct identifiers (names,
+                          IDs) are removed before generalization, separating PII handling from utility-preserving
+                          transformations.
+                        </li>
+                        <li>
+                          <span class="font-medium">Configurable risk vs. utility trade-off:</span> the k parameter and
+                          sensitive-attribute exclusion let operators tune the privacy/utility balance for each release.
+                        </li>
+                        <li>
+                          <span class="font-medium">Quality measurement:</span> a c-avg metric quantifies information
+                          loss, making the anonymization auditable rather than opaque.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Python</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">K-Anonymity</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Data Privacy</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">De-identification</span>
+                      <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">UCI Adult Dataset</span>
+                    </div>
+                  </div>
+                }
+              </article>
+            </div>
           }
           @case ('cv') {
             <p class="text-neutral-500">CV coming soon.</p>

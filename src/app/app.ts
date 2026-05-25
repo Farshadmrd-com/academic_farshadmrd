@@ -26,4 +26,14 @@ export class App {
   protected setTab(tab: (typeof this.tabs)[number]): void {
     this.activeTab.set(tab);
   }
+
+  protected readonly openProject = signal<string | null>('basil-tracker');
+
+  protected isProjectOpen(id: string): boolean {
+    return this.openProject() === id;
+  }
+
+  protected toggleProject(id: string): void {
+    this.openProject.set(this.openProject() === id ? null : id);
+  }
 }
