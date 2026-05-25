@@ -29,20 +29,51 @@
       </div>
     </aside>
 
-    <section class="p-12 md:p-16 text-lg text-neutral-700 leading-relaxed space-y-6 text-justify">
-      <p>
-        I am an MSc candidate in Computer Engineering at the University of Genoa, specializing in Software Platforms and
-        Cybersecurity. My research interests include cybersecurity, privacy-preserving systems, trustworthy AI, and
-        secure distributed software, with a particular focus on healthcare data protection and AI security.
-      </p>
-      <p>
-        Alongside my academic research, I have professional experience in software engineering, DevSecOps, and
-        cloud-native technologies through roles at Ericsson and FANAP Infrastructure. My work combines secure software
-        development, distributed systems, and practical cybersecurity engineering.
-      </p>
-      <p>
-        I am currently seeking PhD opportunities in cybersecurity, trustworthy AI, and privacy-enhancing technologies.
-      </p>
+    <section class="flex flex-col text-lg text-neutral-700 leading-relaxed">
+      <nav class="flex items-center gap-2 border-b border-neutral-200 px-12 md:px-16 pt-8">
+        @for (tab of tabs; track tab) {
+          <button
+            type="button"
+            (click)="setTab(tab)"
+            [class]="
+              'relative -mb-px px-4 py-3 text-base font-medium transition ' +
+              (activeTab() === tab
+                ? 'text-black border-b-2 border-black'
+                : 'text-neutral-500 hover:text-black border-b-2 border-transparent')
+            ">
+            {{ tabLabels[tab] }}
+          </button>
+        }
+      </nav>
+
+      <div class="p-12 md:p-16 space-y-6 text-justify">
+        @switch (activeTab()) {
+          @case ('about') {
+            <p>
+              I am an MSc candidate in Computer Engineering at the University of Genoa, specializing in Software Platforms and
+              Cybersecurity. My research interests include cybersecurity, privacy-preserving systems, trustworthy AI, and
+              secure distributed software, with a particular focus on healthcare data protection and AI security.
+            </p>
+            <p>
+              Alongside my academic research, I have professional experience in software engineering, DevSecOps, and
+              cloud-native technologies through roles at Ericsson and FANAP Infrastructure. My work combines secure software
+              development, distributed systems, and practical cybersecurity engineering.
+            </p>
+            <p>
+              I am currently seeking PhD opportunities in cybersecurity, trustworthy AI, and privacy-enhancing technologies.
+            </p>
+          }
+          @case ('publications') {
+            <p class="text-neutral-500">Publications coming soon.</p>
+          }
+          @case ('projects') {
+            <p class="text-neutral-500">Projects coming soon.</p>
+          }
+          @case ('cv') {
+            <p class="text-neutral-500">CV coming soon.</p>
+          }
+        }
+      </div>
     </section>
   </article>
 </main>
